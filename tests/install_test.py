@@ -2,7 +2,6 @@
 """
 Pytest Example
 ---------
-Test Stoneguard AutoAI Endpoint functions
 """
 import sys
 
