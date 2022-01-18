@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "dev_demo"
 version = "0.1.0"
-description = "CSD-TWC Modern Python Dev Environment Demo"
+description = "Modern Python Dev Environment Demo"
 authors = ["Brent Stone"]
-license = "Creative Commons Attribution-NoDerivatives 4.0 International Public License"
+license = "GPLv2"
 
 [tool.poetry.dependencies]
 python = "^3.10"
