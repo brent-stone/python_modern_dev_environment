@@ -1,0 +1,14 @@
+# PyTest Configuration File Options
+# https://coverage.readthedocs.io/en/latest/config.html#run
+# https://coverage.readthedocs.io/en/latest/excluding.html#excluding
+
+[report]
+omit =
+  scripts/*
+  */site-packages/*
+  .tox/*
+  .cache/*
+  */__main__.py
+
+[run]
+relative_files = True

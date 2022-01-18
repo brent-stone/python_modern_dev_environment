@@ -1,0 +1,78 @@
+default_language_version:
+    python: python3.10.1
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: end-of-file-fixer
+        files: ^.idea/
+    -   id: trailing-whitespace
+        exclude: ^docs/
+    -   id: check-executables-have-shebangs
+    -   id: check-json
+    -   id: check-toml
+    -   id: check-yaml
+    -   id: detect-private-key
+    -   id: detect-aws-credentials
+        args: ['--allow-missing-credentials']
+    -   id: check-docstring-first
+    -   id: mixed-line-ending
+        args: ['--fix=auto']
+    -   id: name-tests-test
+    -   id: pretty-format-json
+        args: ['--autofix']
+    -   id: check-merge-conflict
+    -   id: debug-statements
+    -   id: no-commit-to-branch
+        # Both master and main are protected by default. Merge requests only.
+-   repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+        additional_dependencies: [flake8-typing-imports==1.7.0]
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v2.6.0
+    hooks:
+    -   id: reorder-python-imports
+        args: ['--py3-plus']
+-   repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.20.0
+    hooks:
+    -   id: setup-cfg-fmt
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.931
+    hooks:
+    -   id: mypy
+        additional_dependencies: [types-all]
+        args: [--no-strict-optional, --ignore-missing-imports]
+-   repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+    -   id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        # language_version: python3.8
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.2.2
+    hooks:
+    -   id: python-safety-dependencies-check
+        files: pyproject.toml
+-   repo: https://github.com/PyCQA/bandit
+    rev: 1.7.1
+    hooks:
+    -   id: bandit
+        language_version: python3
+        exclude: ^tests/
+        args:
+        -   -s
+        -   B101
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: Check pytest with coverage passes
+        entry: poetry run pytest --cov=dev_demo tests/
+        pass_filenames: false
+        language: system
+        types: [python]

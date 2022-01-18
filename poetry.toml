@@ -1,0 +1,4 @@
+# https://github.com/python-poetry/poetry/pull/1272
+# Ensures the poetry virtual environment is created in project root
+[virtualenvs]
+in-project = true
