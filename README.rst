@@ -11,7 +11,7 @@ Summary introductions to modern Python dev environments are available `at this b
 
 It's recommended to uninstall any existing system-wide Python3 interpreter before proceeding. Then, add tools to your system in the following order. Details about `pyenv installation of ~/.profile and ~/.bashrc are posted here.`_
 
-1. `pyenv`_.
+1.  `pyenv`_.
 
     * Ensure your computer may support `pyenv` by following `the directions here`_.
     * At a minimum, restart your terminal session: `exec $SHELL`.
@@ -21,7 +21,7 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
     * [optional] Set your preffered version as the default: `pyenv global 3.8.5`.
     * [optional] Global default may be checked with `which python`.
 
-2. `Poetry`_
+2.  `Poetry`_
 
     * verify with `poetry --version`
     * `poetry new <project_name>` auto-creates a distributable boilerplate in folder <project_name>.
@@ -41,12 +41,12 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
 the setup script listed below takes care of the rest of these installations
 ------
 
-3. `pytest-cov`_
+3.  `pytest-cov`_
 
     * Several ways to install coverage but pytest-cov plugin is streamlined `poetry add --dev pytest-cov`.
     * `pytest --cov=<project_name> tests/`.
 
-4. `pre-commit`_
+4.  `pre-commit`_
 
     * `poetry add pre-commit --dev`.
     * Pre-commit allows automated tooling to automatically run when prepping a git commit.
@@ -114,7 +114,7 @@ the setup script listed below takes care of the rest of these installations
 
     source scripts/setup_environment.sh
 
-The environment is correctly configured if the success message appears after running the `scripts/setup_dev_env_poetry.sh` script.
+The environment is correctly configured if the success message appears after running the `scripts/1_after_pyenv_poetry_install-setup_env.sh` script.
 
 Testing your solution and applying the automated tooling can be done by running tox from the activated Pyenv + Poetry virtual environment.
 
