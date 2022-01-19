@@ -68,6 +68,14 @@ repos:
         args:
         -   -s
         -   B101
+-   repo: https://github.com/econchick/interrogate
+    rev: 1.5.0
+    hooks:
+      - id: interrogate
+        args:
+        -   -vv
+        -   --ignore-init-method
+        -   --fail-under=95
 -   repo: local
     hooks:
     -   id: pytest
