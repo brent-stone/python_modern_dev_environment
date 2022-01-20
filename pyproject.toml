@@ -27,6 +27,7 @@ sphinx-autodoc-typehints = "^1.15.2"
 bandit = "^1.7.1"
 safety = "^1.10.3"
 interrogate = "^1.5.0"
+pydantic = "^1.9.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
