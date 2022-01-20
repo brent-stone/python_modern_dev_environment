@@ -110,18 +110,9 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
 
 .. note::
 
-    Poetry may have unmet dependencies listed with distutils and cleo. This may be avoided by not using pyenv to install a newer version of python than Ubuntu officially supports. Aside from using pyenv version to match the OS
-    limitations, the following are additional fixes.
-
-.. code-block:: console
-
-    sudo apt-get install python3-distutils
-    sudo apt-get install python3-apt
-
-
-.. code-block:: console
-
-    source scripts/setup_environment.sh
+    Poetry may have unmet dependencies listed with distutils and cleo. If you're getting an error about cleo and other dependencies, make sure you're using
+    the latest poetry install script listed on the github page and not a deprecated version listed at ReadTheDocs or other websites.
+    Also, ensure you installed build dependencies for pyenv before following the install directions.
 
 The environment is correctly configured if the success message appears after running the `scripts/setup_dev_env_poetry.sh` script.
 
