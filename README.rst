@@ -44,7 +44,8 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
 
 3.  `pytest-cov`_
 
-    * Several ways to install coverage but pytest-cov plugin is streamlined `poetry add --dev pytest-cov`.
+    * Several ways to install coverage but pytest-cov plugin is streamlined 
+    * `poetry add pytest-cov --dev`.
     * `pytest --cov=<project_name> tests/`.
 
 4.  `pre-commit`_
