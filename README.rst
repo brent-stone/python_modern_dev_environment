@@ -159,11 +159,11 @@ Tips
 
     * `poetry install` and `pre-commit install` to ensure all dependencies and the pre-commit hook are added.
 
-5. By default, Poetry creates virtual environments in the user profile cache. Likely, you'll want to have it created
-in the local project folder. To do this, set the poetry environment variable or add the poetry.toml file as shown in
-this repo.
+5.  By default, Poetry creates virtual environments in the user profile cache. Likely, you'll want to have it created
+    in the local project folder. To do this, set the poetry environment variable or add the poetry.toml file as shown in
+    this repo.
 
-* `poetry config virtualenvs.in-project true`
+    * `poetry config virtualenvs.in-project true`
 
 6.  If Sphinx or other tools are warning they can't find your module (dev_demo), ensure `poetry show` lists the module.
-If not, use `poetry install` to locally install in development mode. This is similar to `pip install -e <module>`.
+    If not, use `poetry install` to locally install in development mode. This is similar to `pip install -e <module>`.
