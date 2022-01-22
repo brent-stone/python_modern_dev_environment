@@ -4,84 +4,87 @@ A Modern Python Dev Setup Demo
 
 Setup
 --------------------------
-To setup your local development environment, there are a couple steps. The intention here is to simultaneously enable high quality submissions while getting more 'time behind the wheel' with a full suite of modern
-python development tools.
+After installing pyenv and Poetry for your operating system, follow the steps below to install (potentially multiple versions of) Python with pyenv, activate a local virtual environment for this project using Poetry, then run ``poetry install`` and ``pre-commit install``. The intention here is to simultaneously enable high quality, automatically documented, and mostly bug free code using a full suite of modern python development tools.
+
+If you're on Linux, the bash scripts in the ``/scripts`` folder may help you with creating and activing your virtual environment for the first time.
 
 Summary introductions to modern Python dev environments are available `at this blog post`_ and `this blog post`_.
 `This article`_ has succinct discussion about static and runtime type checking using Pydantic and MyPy.
 
 It's recommended to uninstall any existing system-wide Python3 interpreter before proceeding. Then, add tools to your system in the following order. Details about `pyenv installation of ~/.profile and ~/.bashrc are posted here.`_
 
+**Pull requests are welcome!** Fork this repo to your own account, create a branch in that fork, commit+push an update, then create the pull request from your fork into this repo using the "Pull requests" link above.
+
 1.  `pyenv`_.
 
     * Ensure your computer may support `pyenv` by following `the directions here`_.
-    * At a minimum, restart your terminal session: `exec $SHELL`.
+    * At a minimum, restart your terminal session: ``exec $SHELL``.
     * It's possible/likely a full restart may be required.
-    * `pyenv --version` to test install succeeded.
-    * Install Python versions using the install command: `pyenv install 3.8.5`.
-    * [optional] Set your preffered version as the default: `pyenv global 3.8.5`.
-    * [optional] Global default may be checked with `which python`.
+    * ``pyenv --version`` to test install succeeded.
+    * Install Python versions using the install command: ``pyenv install 3.10.2``.
+    * [optional] Set your preffered version as the default: ``pyenv install 3.10.2``.
+    * [optional] Global default may be checked with ``which python``.
 
 2.  `Poetry`_
 
-    * verify with `poetry --version`
-    * `poetry new <project_name>` auto-creates a distributable boilerplate in folder <project_name>.
-    * Inside <project_name>, `pyenv local 3.8.5` sets a specific pyenv version for the project.
-    * `poetry env use python` creates a new virtual environment for the package/project.
-    * `poetry install` adds any dependencies from the config files and poetry itself.
-    * `poetry update` updates any packages to their latest compatible version(s).
-    * `poetry shell` moves the terminal to execute within the context of the virtual environment.
-    * `poetry run pytest` automatically finds \tests\ and executes tests, producing a report. [NOTE: lost of plugins
-    * `poetry show -v` will printout the virtual environment path. Helpful when configuring IDEs.
-    * `poetry config virtualenvs.in-project true` will host virtual environments inside the project root. This can
+    * verify with ``poetry --version``
+    * ``poetry new <project_name>`` auto-creates a distributable boilerplate in folder <project_name>.
+    * Inside <project_name>, ``pyenv local 3.10.2`` sets a specific pyenv version for the project.
+    * ``poetry env use python`` creates a new virtual environment for the package/project.
+    * ``poetry install`` adds any dependencies from the config files and poetry itself.
+    * ``poetry update`` updates any packages to their latest compatible version(s).
+    * ``poetry shell`` moves the terminal to execute within the context of the virtual environment.
+    * ``poetry run pytest`` automatically finds \tests\ and executes tests, producing a report. [NOTE: lost of plugins
+    * ``poetry show -v`` will printout the virtual environment path. Helpful when configuring IDEs.
+    * ``poetry config virtualenvs.in-project true`` will host virtual environments inside the project root. This can
       make referencing the virtual environment easier when configuring IDEs or writing scripts.
       available to improve this output including HTML reports)
-    * If `poetry shell` was used, simply calling `pytest` will also run tests.
+    * If ``poetry shell`` was used, simply calling ``pytest`` will also run tests.
 
 ------
-`Poetry install` using pyproject.toml installs the rest of these tools.
+``Poetry install`` using pyproject.toml installs the rest of these tools.
 ------
 
 3.  `pytest-cov`_
 
     * Several ways to install coverage but pytest-cov plugin is streamlined 
-    * `poetry add pytest-cov --dev`.
-    * `pytest --cov=<project_name> tests/`.
+    * ``poetry add pytest-cov --dev``.
+    * ``pytest --cov=<project_name> tests/``.
 
 4.  `pre-commit`_
 
-    * `poetry add pre-commit --dev`.
+    * ``poetry add pre-commit --dev``.
     * Pre-commit allows automated tooling to automatically run when prepping a git commit.
 
 5.  `flake8`_
 
     * In IDE and CLI code quality assistant.
-    * `poetry add flake8 --dev`.
+    * ``poetry add flake8 --dev``.
 
 6.  `reorder-python-imports`_
 
     * More 'robust' alternative to isort.
-    * `poetry add reorder-python-imports --dev`.
+    * ``poetry add reorder-python-imports --dev``.
 
 7.  `add-trailing-comma`_
 
     * Ensure minimal diffs when making signature updates to functions and data structures.
-    * `poetry add add-trailing-comma --dev`.
+    * ``poetry add add-trailing-comma --dev``.
 
 8.  `setup-cfg-fmt`_
 
     * Ensure `setup.cfg` files are standardized.
-    * `poetry add setup-cfg-fmt --dev`
+    * ``poetry add setup-cfg-fmt --dev``
 
 9.  `mypy`_
 
     * Maximize accurate use of python's (continuously expanded) typing system to minimize bugs.
-    * `poetry add mypy --dev`
+    * ``poetry add mypy --dev``
 
 10. `black`_
 
     * Automatically apply linting best practices. Goodbye pedantic code reviews on style/format.
-    * `poetry add black --dev`
+    * ``poetry add black --dev``
 
 11. `pydantic`_
 
@@ -126,7 +129,7 @@ Testing your solution and applying the automated tooling can be done by running 
 Tips
 --------------------------
 
-1.  `exit` instead of `deactivate` to have your shell exit the Poetry virtual environment.
+1.  ``exit`` instead of ``deactivate`` to have your shell exit the Poetry virtual environment.
 
     * If you can't use `poetry shell` to enter virtual environment because 'it already exists', try the following:
 
@@ -134,27 +137,27 @@ Tips
 
     source "$( poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate"
 
-2.  To start a new project, try `poetry new <project_name>` and a decent default folder structure will be created.
+2.  To start a new project, try ``poetry new <project_name>`` and a decent default folder structure will be created.
 
-3.  To add a reasonable pyproject.toml to an existing project: `poetry init`
+3.  To add a reasonable pyproject.toml to an existing project: ``poetry init``
 
 4.  To manually activate a virtual environment:
 
-    * `pyenv versions` to see which Python versions are installed.
+    * ``pyenv versions`` to see which Python versions are installed.
 
-    * `poetry env use <python_version>` to create a virtual environment with the preffered versions.
+    * ``poetry env use <python_version>`` to create a virtual environment with the preffered versions.
 
-    * `poetry shell` to activate the new environment.
+    * ``poetry shell`` to activate the new environment.
 
-    * `python -V` in the activated virtual environment to verify the correct python version is being used.
+    * ``python -V`` in the activated virtual environment to verify the correct python version is being used.
 
-    * `poetry install` and `pre-commit install` to ensure all dependencies and the pre-commit hook are added.
+    * ``poetry install`` and ``pre-commit install`` to ensure all dependencies and the pre-commit hook are added.
 
 5.  By default, Poetry creates virtual environments in the user profile cache. Likely, you'll want to have it created
     in the local project folder. To do this, set the poetry environment variable or add the poetry.toml file as shown in
     this repo.
 
-    * `poetry config virtualenvs.in-project true`
+    * ``poetry config virtualenvs.in-project true``
 
-6.  If Sphinx or other tools are warning they can't find your module (dev_demo), ensure `poetry show` lists the module.
-    If not, use `poetry install` to locally install in development mode. This is similar to `pip install -e <module>`.
+6.  If Sphinx or other tools are warning they can't find your module (dev_demo), ensure ``poetry show`` lists the module.
+    If not, use ``poetry install`` to locally install in development mode. This is similar to ``pip install -e <module>``.
