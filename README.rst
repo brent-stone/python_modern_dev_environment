@@ -22,7 +22,8 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
     * It's possible/likely a full restart may be required.
     * ``pyenv --version`` to test install succeeded.
     * Install Python versions using the install command: ``pyenv install 3.10.2``.
-    * [optional] Set your preffered version as the default: ``pyenv install 3.10.2``.
+    * [optional] Set your preferred default python version systemwide: ``pyenv global 3.10.2``.
+    * [optional] Set your preferred default python version for a folder/project/repo: ``pyenv local 3.10.2``.
     * [optional] Global default may be checked with ``which python``.
 
 2.  `Poetry`_
