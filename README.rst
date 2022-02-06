@@ -11,7 +11,7 @@ If you're on Linux, the bash scripts in the ``/scripts`` folder may help you wit
 Summary introductions to modern Python dev environments are available `at this blog post`_ and `this blog post`_.
 `This article`_ has succinct discussion about static and runtime type checking using Pydantic and MyPy.
 
-It's recommended to uninstall any existing system-wide Python3 interpreter before proceeding. Then, add tools to your system in the following order. Details about `pyenv installation of ~/.profile and ~/.bashrc are posted here.`_
+It's recommended to add tools to your system in the following order. Details about `pyenv installation of ~/.profile and ~/.bashrc are posted here.`_
 
 **Pull requests are welcome!** Fork this repo to your own account, create a branch in that fork, commit+push an update, then create the pull request from your fork into this repo using the "Pull requests" link above.
 
@@ -28,6 +28,7 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
 
 2.  `Poetry`_
 
+    * If the poetry install script off GitHub causes a ``ModuleNotFoundError: No module named 'cleo'``, try ``pip install poetry``
     * verify with ``poetry --version``
     * ``poetry new <project_name>`` auto-creates a distributable boilerplate in folder <project_name>.
     * Inside <project_name>, ``pyenv local 3.10.2`` sets a specific pyenv version for the project.
@@ -94,7 +95,7 @@ It's recommended to uninstall any existing system-wide Python3 interpreter befor
 
 .. _pyenv installation of ~/.profile and ~/.bashrc are posted here.: https://github.com/pyenv/pyenv/issues/1911#issue-882944925
 .. _pyenv: https://github.com/pyenv/pyenv
-.. _Poetry: https://python-poetry.org/docs/
+.. _Poetry: https://github.com/python-poetry/poetry
 .. _at this blog post: https://mitelman.engineering/posts/python-best-practice/automating-python-best-practices-for-a-new-project/
 .. _this blog post: https://www.laac.dev/blog/setting-up-modern-python-development-environment-ubuntu-20/
 .. _This article: https://medium.com/codex/python-typing-and-validation-with-mypy-and-pydantic-a2563d67e6d
